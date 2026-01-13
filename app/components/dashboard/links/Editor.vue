@@ -32,9 +32,6 @@ const EditLinkSchema = LinkSchema.pick({
     slug: true,
     createdAt: true,
     updatedAt: true,
-    title: true,
-    description: true,
-    image: true,
   }).extend({
     expiration: z.coerce.date().optional(),
   }).optional(),
@@ -67,6 +64,9 @@ const form = useForm({
     url: link.value.url,
     optional: {
       comment: link.value.comment,
+      title: link.value.title,
+      description: link.value.description,
+      image: link.value.image,
     },
   },
   validateOnMount: isEdit,
