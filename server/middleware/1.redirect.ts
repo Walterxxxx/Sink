@@ -2,7 +2,7 @@ import type { LinkSchema } from '@@/schemas/link'
 import type { z } from 'zod'
 import { getHeader, getRequestHost, getRequestProtocol } from 'h3'
 import { parsePath, withQuery } from 'ufo'
-import { useAccessLog } from '@/utils/access-log'
+import { useAccessLog } from '../utils/access-log'
 
 export default eventHandler(async (event) => {
   const { pathname: slug } = parsePath(event.path.replace(/^\/|\/$/g, '')) // remove leading and trailing slashes
